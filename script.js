@@ -115,6 +115,9 @@ grid.addEventListener('click', function(event){
             if (firstGuess === secondGuess) {
                 // run the match function
                 match();
+                resetGuesses();
+            } else {
+                resetGuesses();
             }
         }
         // Set previous target to clicked
@@ -128,4 +131,15 @@ const match = () => {
     selected.forEach(card => {
         card.classList.add('match');
     });
+};
+
+const resetGuesses = () => {
+    firstGuess = '';
+    secondGuess = '';
+    count = 0;
+
+    var selected = document.querySelectorAll('.selected');
+    selected.forEach(card => {
+        card.classList.remove('selected');
+    })
 }

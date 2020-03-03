@@ -54,6 +54,9 @@ const cardsArray = [
 // Duplicate array to create a match for each card
 let gameGrid = cardsArray.concat(cardsArray);
 
+// Randomize game grid on each load
+gameGrid.sort(() => 0.5 - Math.random());
+
 const game = document.getElementById('game');
 
 // Create a section with a class of grid

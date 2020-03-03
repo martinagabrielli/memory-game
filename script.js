@@ -57,6 +57,8 @@ let gameGrid = cardsArray.concat(cardsArray);
 // Randomize game grid on each load
 gameGrid.sort(() => 0.5 - Math.random());
 
+let count = 0;
+
 const game = document.getElementById('game');
 
 // Create a section with a class of grid
@@ -84,3 +86,18 @@ gameGrid.forEach(item => {
     grid.appendChild(card);
 });
 
+// Add event listener to grid
+grid.addEventListener('click', function(event){
+    // The event target is our clicked item
+    let clicked = event.target;
+
+    // Do not allow the grid section itself to be selected; only select divs inside the grid
+    if (clicked.nodeName === 'SECTION') {
+        return;
+    }
+    if (count < 2) {
+        count++;
+        // Add selected class
+        clicked.classList.add('selected');
+    }
+});

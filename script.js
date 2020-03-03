@@ -51,6 +51,9 @@ const cardsArray = [
     },
 ]
 
+// Duplicate array to create a match for each card
+let gameGrid = cardsArray.concat(cardsArray);
+
 const game = document.getElementById('game');
 
 // Create a section with a class of grid
@@ -61,7 +64,7 @@ grid.setAttribute('class', 'grid');
 game.appendChild(grid);
 
 // For each item in the cardsArray array...
-cardsArray.forEach(item => {
+gameGrid.forEach(item => {
     // Create a div
     const card = document.createElement('div');
 
